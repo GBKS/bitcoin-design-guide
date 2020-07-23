@@ -20,7 +20,7 @@ dl, dd, ol, ul, figure {
  */
 body {
   font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-  color: $text-color;
+  color: rgba(var(--front), 0.72);
   background-color: $background-color;
   -webkit-text-size-adjust: 100%;
   -webkit-font-feature-settings: "kern" 1;
@@ -118,6 +118,7 @@ li {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: $heavy-font-weight;
+  color: var(--frontHex);
 }
 
 
@@ -218,9 +219,9 @@ pre {
   margin-left: auto;
   padding-right: $spacing-unit / 2;
   padding-left: $spacing-unit / 2;
-  @extend %clearfix;
+  @include clearfix;
 
-  @media screen and (min-width: $on-large) {
+  @include media-query(large) {
     max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
     padding-right: $spacing-unit;
     padding-left: $spacing-unit;
@@ -288,7 +289,7 @@ table {
     border: 1px solid $table-border-color;
   }
 
-  @include media-query($on-laptop) {
+  @include media-query(large) {
     display: block;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
